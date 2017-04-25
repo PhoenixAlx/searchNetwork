@@ -12,13 +12,16 @@ class searcher{
             .charge(-100)
             .size([this.width, this.height]);
     }
+    createMenu(){
+        
+    }
     creatNetwork(datasjson) {
         var force = this.force;
         force
               .nodes(datasjson.nodes)
               .links(datasjson.links)
               .start();
-
+        
         var link = this.svg.selectAll(".link");
         link=link.data(datasjson.links);
         link.exit().remove();
@@ -77,7 +80,7 @@ class searcher{
                     
                     if (nodes_selected.length>0){
                         var node_b_chose=nodes_selected[Math.floor(Math.random() * nodes_selected.length)];
-                        datasjson.links.push({"source":pos_node,"target":node_b_chose,"weight":3});
+                        datasjson.links.push({"source":pos_node,"target":node_b_chose,"weight":3,"type":0});
                         //var link = svg.append("g").selectAll(".link");
                         force.start();
                         link=link.data(datasjson.links);
@@ -106,5 +109,11 @@ class searcher{
                 .attr("y2", function(d) { return d.target.y; });
                 node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
             });
+        var rectangle = this.svg.append("svg:image")
+              .attr("x", 0)
+              .attr("y", 0)
+              .attr("width", 40)
+              .attr("height", 60)
+              .attr("xlink:href", "img/menu.png");
     }
 }
