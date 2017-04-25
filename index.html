@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script src="http://d3js.org/d3.v2.min.js?2.9.3"></script>
+<script src="js/network.js"></script>
+<style>
+
+.link {
+  stroke: #aaa;
+}
+
+.node text {
+stroke:#333;
+cursos:pointer;
+}
+
+.node circle{
+stroke:#fff;
+stroke-width:3px;
+fill:#555;
+}
+
+</style>
+<body>
+    <section id="container"></section>
+<script>
+
+
+
+datajson={
+  "nodes":[
+		{"name":"node1","group":1,"color":"red","weigth":20,"selected":false},
+		{"name":"node2","group":2,"color":"blue","weigth":20,"selected":false},
+		{"name":"node3","group":2,"color":"green","weigth":20,"selected":false},
+		{"name":"node4","group":3,"color":"yellow","weigth":20,"selected":false}
+	],
+	"links":[
+		
+	]
+}
+//{"source":0,"target":2,"weight":3}
+
+var s= new searcher("#container");
+console.log(s)
+s.creatNetwork(datajson);
+
+</script>
+</body>
+</html>
